@@ -3,7 +3,7 @@ export default {
     props: {
         card: Object
     }
-};
+}
 </script>
 
 

@@ -10,13 +10,12 @@ import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppCards from './components/AppCards.vue';
 import axios from 'axios';
-import { store } from './store';
+import { store } from './store.js';
 
 export default {
   data() {
     return { 
-     store:store,
-     Cards: [],
+    store:store
     }
   },
   // 2) Dichiarazione del componente

@@ -1,7 +1,13 @@
 <script>
 import AppCards from './AppCards.vue';
 import { store } from '../store';
-
+export default {
+  data() {
+    return { 
+     store:store
+    }
+  }
+}
 </script>
 
 
@@ -17,10 +23,12 @@ import { store } from '../store';
             </select>
 
 
-            <div class="white_background">
-                <div v-for="(card, i) in store.Cards" :key="1">
+            <div class="white_background d-flex flex-wrap">
+                <div v-for="(card, i) in store.Cards" :key="1" class="fs-5 fw-bold text-uppercase card_yugy">
                    
-                    {{ card.name }}
+                    <div class="card_name">
+                        {{ card.name }}
+                    </div>
                 </div>
             </div>
         </div>
@@ -50,9 +58,21 @@ div {
 }
 
 .white_background {
-    width:95%;
+    width:100%;
     height:95%;
     background-color: white;
     margin: 0 auto;
+    padding: 40px;
+}
+
+.card_yugy {
+    width: calc(100% / 6);
+    max-height: 300px;
+    margin: 6px;
+}
+
+.card_name {
+    border: 1px solid red;
+    background-color: $MainColor;
 }
 </style>
