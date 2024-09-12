@@ -1,4 +1,6 @@
 <script>
+import AppCards from './AppCards.vue';
+import { store } from '../store';
 
 </script>
 
@@ -16,7 +18,10 @@
 
 
             <div class="white_background">
-
+                <div v-for="(card, i) in store.Cards" :key="1">
+                   
+                    {{ card.name }}
+                </div>
             </div>
         </div>
     </main>

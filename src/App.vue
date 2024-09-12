@@ -9,11 +9,14 @@
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 import AppCards from './components/AppCards.vue';
+import axios from 'axios';
+import { store } from './store';
 
 export default {
   data() {
     return { 
-     
+     store:store,
+     Cards: [],
     }
   },
   // 2) Dichiarazione del componente
@@ -21,6 +24,18 @@ export default {
     AppHeader,
     AppMain,
     AppCards
+  },
+  created() {
+    axios 
+    .get ('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0')
+    .then((response)=> {
+
+      console.log(response.data.data)
+      this.store.Cards= response.data.data
+      console.log(this.store.Cards)
+
+      
+    });
   },
   methods: {
     
