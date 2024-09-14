@@ -11,23 +11,35 @@ export default {
 </script>
 
 
-
 <template>
-    <main class="p-5">
-        <div>
-            <select class="form-select mb-4" aria-label="Default select example">
-                <option selected>Alien</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
+    <main class="p-5 container-fluid">
+        <div class="row">
+            <div  class="col">
+                <select class="form-select mb-4" aria-label="Default select example">
+                    <option selected>Alien</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+    
 
+                <p class="fw-bold text-uppercase d-flex justify-content-center align-items-center ">
+                    Found {{ store.Cards.length }} cards
+                </p>
 
-            <div class="white_background d-flex flex-wrap">
-                <div v-for="(card, i) in store.Cards" :key="1" class="fs-5 fw-bold text-uppercase card_yugy">
-                   
-                    <div class="card_name">
-                        {{ card.name }}
+                <div class="white_background d-flex flex-wrap justify-content-center align-items-center p-0">
+
+                    <div v-for="(card, i) in store.Cards" :key="1" class="card_yugy">
+                        <div>
+                            <img :src="card.card_images[0].image_url" alt="card.name">
+                        </div>
+                        <div class="card_name fw-bold text-uppercase ">
+                            {{ card.name }}
+                           <div class="text-smaller text-black">
+                            {{ card.archetype }}
+                           </div>
+                        </div>
+                
                     </div>
                 </div>
             </div>
@@ -43,7 +55,6 @@ export default {
 
 main {
     width: 100vw;
-    height: 100vh;
     background-color: $MainColor;
 }
 
@@ -51,28 +62,34 @@ main {
     width: 100px;
 }
 
-div {
-    width:100%;
-    height:100%;
 
-}
 
 .white_background {
     width:100%;
-    height:95%;
     background-color: white;
     margin: 0 auto;
-    padding: 40px;
 }
 
 .card_yugy {
     width: calc(100% / 6);
-    max-height: 300px;
     margin: 6px;
+    padding: 20px;
 }
 
 .card_name {
-    border: 1px solid red;
     background-color: $MainColor;
+    height: 80px;
+    text-align: center;
+    padding: 5px;
+    color: white;
+}
+
+p {
+    background-color: #212529;
+    color: white;
+}
+
+img {
+    width: 100%;
 }
 </style>
