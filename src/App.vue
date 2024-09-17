@@ -41,15 +41,14 @@ export default {
 
     axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
     .then(response => {
-      let Archetypes= []
+      let archetypes = []
     // Ciclo for per aggiungere i nomi degli archetipi nell'array
     for (let i = 0; i < response.data.length; i++) {
-        Archetypes.push(response.data[i].archetype_name);
+        archetypes.push(response.data[i].archetype_name);
         
     }
-
-    console.log('Lista degli archetipi', Archetypes)
-     })
+    this.store.Archetypes = archetypes;
+  })
   },
   methods: {
     

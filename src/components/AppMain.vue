@@ -19,7 +19,8 @@ export default {
             <div  class="col">
                 <!-- Select per il tipo di archetipo della card  -->
                 <select class="form-select mb-4" aria-label="Default select example">
-                    <option value="1" v-for="(archetype, i) in store.Archetypes" :key="1">{{ Archetypes.archetype }}</option>
+                    <option selected>Archetype</option>
+                    <option value="1" v-for="(archetype, i) in store.Archetypes" :key="1">{{ archetype }}</option>
                     
                 </select>
     
@@ -62,7 +63,7 @@ main {
 }
 
 .form-select {
-    width: 100px;
+    width: 150px;
 }
 
 
