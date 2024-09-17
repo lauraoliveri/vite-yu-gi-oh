@@ -2,7 +2,7 @@
 import { store } from '../store.js';
 export default {
     props: {
-        card: Object
+        card: Object,
     }
 }
 </script>
@@ -10,9 +10,9 @@ export default {
 
 <template>
 
-       <div v-for="(card, i) in Cards" :key="1">
+        <div v-for="(card, i) in Cards" :key="1">
    
-      </div>
+        </div>
         
 
 

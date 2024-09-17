@@ -8,6 +8,8 @@ export default {
     }
   }
 }
+
+
 </script>
 
 
@@ -15,20 +17,21 @@ export default {
     <main class="p-5 container-fluid">
         <div class="row">
             <div  class="col">
+                <!-- Select per il tipo di archetipo della card  -->
                 <select class="form-select mb-4" aria-label="Default select example">
-                    <option selected>Alien</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="1" v-for="(archetype, i) in store.Archetypes" :key="1">{{ Archetypes.archetype }}</option>
+                    
                 </select>
     
-
+                <!-- Numero di carte trovate -->
                 <p class="fw-bold text-uppercase d-flex justify-content-center align-items-center ">
                     Found {{ store.Cards.length }} cards
                 </p>
 
+                <!-- Sfondo bianco -->
                 <div class="white_background d-flex flex-wrap justify-content-center align-items-center p-0">
 
+                    <!-- Ciclo per creare le card con propria immagine, nome e archetipo -->
                     <div v-for="(card, i) in store.Cards" :key="1" class="card_yugy">
                         <div>
                             <img :src="card.card_images[0].image_url" alt="card.name">

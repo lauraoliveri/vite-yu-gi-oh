@@ -15,7 +15,7 @@ import { store } from './store.js';
 export default {
   data() {
     return { 
-    store:store
+    store:store,
     }
   },
   // 2) Dichiarazione del componente
@@ -25,6 +25,7 @@ export default {
     AppCards
   },
   created() {
+    // per prendere dall'API generale le info di ogni card
     axios 
     .get ('https://db.ygoprodeck.com/api/v7/cardinfo.php?num=10&offset=0')
     .then((response)=> {
@@ -34,7 +35,21 @@ export default {
       console.log(this.store.Cards)
 
       
-    });
+    }),
+
+    // per prendere dall'API degli archetipi tutti i tipi di archetipi che le card possono avere
+
+    axios.get('https://db.ygoprodeck.com/api/v7/archetypes.php')
+    .then(response => {
+      let Archetypes= []
+    // Ciclo for per aggiungere i nomi degli archetipi nell'array
+    for (let i = 0; i < response.data.length; i++) {
+        Archetypes.push(response.data[i].archetype_name);
+        
+    }
+
+    console.log('Lista degli archetipi', Archetypes)
+     })
   },
   methods: {
     
